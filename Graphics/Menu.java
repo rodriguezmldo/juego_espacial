@@ -20,8 +20,7 @@ public class Menu extends JPanel {
 
         // cramos la ventana de menu
         JPanel menuWindow = this;
-        menuWindow.setLayout(FlowLayout.CENTER);
-
+        setLayout(new FlowLayout());
         // Mostramos las opciones de menu
 
         
