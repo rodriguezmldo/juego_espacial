@@ -1,4 +1,4 @@
-package Pruebas;
+package Graphics;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,11 +21,15 @@ public class Nave extends JPanel implements KeyListener {
     }
 
     private void cargarImagen() {
-        ImageIcon icono = new ImageIcon("Pruebas/foto1.png");
-        Image imagen = icono.getImage();
-        Image nuevaImagen = imagen.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
-        nave = new JLabel(new ImageIcon(nuevaImagen));
-        add(nave);
+        try {
+            ImageIcon icono = new ImageIcon("Graphics/Resources/nave_volando.gif");
+            Image imagen = icono.getImage();
+            Image nuevaImagen = imagen.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+            nave = new JLabel(new ImageIcon(nuevaImagen));
+            add(nave);
+        } catch (Exception e) {
+            System.out.println("Error al cargar la imagen: " + e.getMessage());
+        }
     }
 
     @Override
