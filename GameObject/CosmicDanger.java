@@ -1,3 +1,5 @@
+package GameObject;
+
 public class CosmicDanger extends CosmicObject {
     protected Spacecraft spacecraft; // Agregar esta línea
     private int lifeCapsulesPenalty;

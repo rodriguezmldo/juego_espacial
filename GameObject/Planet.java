@@ -1,3 +1,5 @@
+package GameObject;
+
 public class Planet extends CosmicDanger {
     private boolean hasLife;
 

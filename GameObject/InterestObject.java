@@ -1,3 +1,5 @@
+package GameObject;
+
 public abstract class InterestObject extends CosmicObject {
     protected int capsules;
     protected int distanceLimit;
@@ -9,11 +11,6 @@ public abstract class InterestObject extends CosmicObject {
     }
 
     @Override
-    public void move() {
-        // Implementación del movimiento del objeto de interés
-    }
-
-    @Override
     public void interact(Spacecraft spacecraft) {
         System.out.println("Interacción con objeto de interés en distancia: " + distance);
         if (spacecraft != null) {
@@ -22,5 +19,5 @@ public abstract class InterestObject extends CosmicObject {
         } else {
             System.out.println("¡Error! La referencia a la nave espacial es nula.");
         }
-    }
+    }   
 }

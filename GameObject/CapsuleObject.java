@@ -1,3 +1,5 @@
+package GameObject;
+
 public class CapsuleObject extends InterestObject {
     public CapsuleObject(int distance, int capsules) {
         super(distance, capsules, 2000); // No es necesario pasar la velocidad

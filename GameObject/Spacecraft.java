@@ -1,3 +1,5 @@
+package GameObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +11,6 @@ public class Spacecraft extends CosmicObject {
     private List<CosmicObject> cosmicObjects;
 
     private int INTERACTION_DISTANCE_THRESHOLD;
-    private static final int MAX_SPEED = 30000;
-    private static final int MAX_DISTANCE = 1000000;
 
     public Spacecraft(int lifeCapsules, int missiles, int speed, int distance) {
         this.lifeCapsules = lifeCapsules;
@@ -36,13 +36,14 @@ public class Spacecraft extends CosmicObject {
     public void captureObject(CosmicObject object) {
         int objectDistance = object.getDistance();
         if (objectDistance <= 6000) {
+
             // Capturar objeto
-            if (object instanceof Planet) {
+            if (object instanceof Planet) { // si el objeto es un planeta, entonces:
                 Planet planet = (Planet) object;
                 if (planet.hasLife()) {
                     this.lifeCapsules += 5;
                 } 
-            } else if (object instanceof Asteroid) {
+            } else if (object instanceof Asteroid) { // si el objeto es un asteriode, entonces:
                 Asteroid asteroid = (Asteroid) object;
                 if (this.distance <= 6000 && this.speed >= 20000) {
                     // Destruir asteroide
@@ -52,7 +53,7 @@ public class Spacecraft extends CosmicObject {
                     this.lifeCapsules -= 20;
                     this.missiles -= 40;
                 }
-            } else if (object instanceof BlackHole) {
+            } else if (object instanceof BlackHole) { // si el objeto es un agujero negro, entonces: 
                 BlackHole blackHole = (BlackHole) object;
                 if (this.distance <= 4000 && this.speed >= 28000) {
                     // Destruir hoyo negro
@@ -96,35 +97,6 @@ public class Spacecraft extends CosmicObject {
                 System.out.println(cosmicObject.getClass().getSimpleName() + " está fuera de rango de interacción.");
             }
         }
-    }
-
-    @Override
-    public void move() {
-        // Actualizar la posición basada en la velocidad actual
-        distance += speed;
-    
-        // Ajustar el umbral de interacción en función de la velocidad actual
-        INTERACTION_DISTANCE_THRESHOLD = calculateInteractionThreshold(speed);
-    
-        // Verificar si la velocidad excede un límite máximo y tomar acciones en consecuencia
-        if (speed > MAX_SPEED) {
-            speed = MAX_SPEED; // Limitamos la velocidad al máximo permitido
-            // Emitir una advertencia o mensaje indicando que la velocidad máxima ha sido alcanzada
-            System.out.println("¡Advertencia! Velocidad máxima alcanzada.");
-        }
-    
-        // Verificar si la distancia ha excedido un límite máximo y tomar acciones en consecuencia
-        if (distance > MAX_DISTANCE) {
-            distance = MAX_DISTANCE; // Limitamos la distancia al máximo permitido
-            // Emitir una advertencia o mensaje indicando que se ha alcanzado la distancia máxima
-            System.out.println("¡Advertencia! Has llegado al límite del espacio conocido.");
-        }
-    }
-    
-    // Método para calcular dinámicamente el umbral de interacción
-    private int calculateInteractionThreshold(int speed) {
-        // Calcula el umbral como un porcentaje de la velocidad actual
-        return (int) (speed * 0.1); // Por ejemplo, podríamos usar el 10% de la velocidad como umbral
     }
     
     @SuppressWarnings("unused")
