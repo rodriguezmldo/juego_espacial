@@ -12,12 +12,13 @@ import java.awt.Frame;
 
 public class Menu extends JPanel {
 
-    private Frame ventana;
+    private int refresh;
 
-    public Menu(Frame ventana){
+    public Menu(int refresh){
         setFocusable(true);
-        this.ventana = ventana;
         activeWindowMenu();
+        this.refresh = refresh;
+
     }
 
     public void activeWindowMenu(){
@@ -69,23 +70,21 @@ public class Menu extends JPanel {
         opcion4Button.setBackground(backgroundColor);
 
         opcion1Button.addActionListener(e -> {
-            ventana.add(new Nave());
-
-            menuWindow.revalidate(); 
+            refresh = 1; 
         });
 
         opcion2Button.addActionListener(e -> {
-            JOptionPane.showMessageDialog(menuWindow, "Has seleccionado la Opción 2");
-
-
+            refresh = 2;
         });
 
         opcion3Button.addActionListener(e -> {
-            JOptionPane.showMessageDialog(menuWindow, "Has seleccionado la Opción 3");
+            refresh = 3;
         });
 
         opcion4Button.addActionListener(e -> {
-            JOptionPane.showMessageDialog(menuWindow, "Has seleccionado la Opción 4");
+            refresh = 4; 
         });
+
+        
     }
 }
