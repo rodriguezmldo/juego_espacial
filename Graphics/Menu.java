@@ -7,12 +7,16 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.Frame;
 
 
 public class Menu extends JPanel {
 
-    public Menu(){
+    private Frame ventana;
+
+    public Menu(Frame ventana){
         setFocusable(true);
+        this.ventana = ventana;
         activeWindowMenu();
     }
 
@@ -20,7 +24,6 @@ public class Menu extends JPanel {
 
         // cramos la ventana de menu
         JPanel menuWindow = this;
-        Nave shipGame = new Nave();
         menuWindow.setLayout(null);
 
         // Creamos y colocamos los botones en el panel de la ventana
@@ -66,10 +69,9 @@ public class Menu extends JPanel {
         opcion4Button.setBackground(backgroundColor);
 
         opcion1Button.addActionListener(e -> {
-            menuWindow.add(shipGame);
+            ventana.add(new Nave());
 
-            menuWindow.revalidate();
-            menuWindow.repaint();
+            menuWindow.revalidate(); 
         });
 
         opcion2Button.addActionListener(e -> {
@@ -86,5 +88,4 @@ public class Menu extends JPanel {
             JOptionPane.showMessageDialog(menuWindow, "Has seleccionado la Opción 4");
         });
     }
-    
 }
