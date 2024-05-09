@@ -3,7 +3,7 @@ import java.awt.*;
 
 import Graphics.Menu;
 
-//prueba
+//prueba 2
 class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
 
