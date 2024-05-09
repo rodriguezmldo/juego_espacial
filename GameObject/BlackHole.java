@@ -1,7 +1,10 @@
 package GameObject;
 
-public class BlackHole extends CosmicDanger {
-    public BlackHole(int distance) {
-        super(distance, 0, null, 35, 35, 80); // Invocar el constructor de la superclase
+import java.awt.image.BufferedImage;
+import Math.Vector2D;
+
+public class BlackHole extends CosmicObject {
+    public BlackHole(Vector2D position, BufferedImage texture) {
+        super(position, texture); // Invocar el constructor de la superclase
     }
 }

@@ -1,23 +1,20 @@
 package GameObject;
 
-public class CapsuleObject extends InterestObject {
-    public CapsuleObject(int distance, int capsules) {
-        super(distance, capsules, 2000); // No es necesario pasar la velocidad
+import java.awt.image.BufferedImage;
+import Math.Vector2D;
+
+public class CapsuleObject extends CosmicObject {
+    private int health;
+    public CapsuleObject(Vector2D position, BufferedImage texture) {
+        super(position, texture); // No es necesario pasar la velocidad
     }
 
     // Agregar el método getCapsules() para obtener el número de cápsulas
-    public int getCapsules() {
-        return capsules;
+    public int getHealth() {
+        return health;
      }
 
-    @Override
-    public void interact(Spacecraft spacecraft) {
-        System.out.println("Interacción con cápsula en distancia: " + distance);
-        if (spacecraft != null) {
-            spacecraft.lifeCapsules += capsules;
-            System.out.println("¡La nave espacial ha capturado la cápsula!");
-        } else {
-            System.out.println("¡Error! La referencia a la nave espacial es nula.");
-        }
-    }
+     public void setHealth(int health) {
+        this.health = health;
+     } 
 }

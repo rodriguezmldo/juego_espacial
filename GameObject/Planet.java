@@ -1,14 +1,10 @@
 package GameObject;
 
-public class Planet extends CosmicDanger {
-    private boolean hasLife;
+import java.awt.image.BufferedImage;
+import Math.Vector2D;
 
-    public Planet(int distance, boolean hasLife) {
-        super(distance, 0, null, hasLife ? 25 : 15, 25, 50); // Daño y penalidades específicas para planetas
-        this.hasLife = hasLife;
-    }
-
-    public boolean hasLife() {
-        return hasLife;
+public class Planet extends CosmicObject {
+    public Planet(Vector2D position, BufferedImage texture) {
+        super(position, texture);
     }
 }
