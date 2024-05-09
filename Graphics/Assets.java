@@ -1,6 +1,5 @@
 package Graphics;
 
-import java.awt.Font;
 import java.awt.image.BufferedImage;
 
 public class Assets {
@@ -90,13 +89,4 @@ public class Assets {
 		count ++;
 		return Loader.ImageLoader(path);
 	}
-	public static Font loadFont(String path, int size) {
-		count ++;
-		return Loader.loadFont(path, size);
-	}
-	public static Clip loadSound(String path) {
-		count ++;
-		return Loader.loadSound(path);
-	}
-	
 }

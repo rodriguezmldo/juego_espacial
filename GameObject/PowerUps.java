@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import Math.Vector2D;
 
 public class PowerUps extends CosmicObject{
-    private int time;
+    protected int time;
 
     public PowerUps(Vector2D position, BufferedImage texture) {
         super(position, texture);
