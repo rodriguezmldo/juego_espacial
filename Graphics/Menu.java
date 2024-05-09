@@ -12,9 +12,9 @@ import java.awt.Frame;
 
 public class Menu extends JPanel {
 
-    private int refresh;
+    private boolean refresh;
 
-    public Menu(int refresh){
+    public Menu(boolean refresh){
         setFocusable(true);
         activeWindowMenu();
         this.refresh = refresh;
@@ -70,19 +70,19 @@ public class Menu extends JPanel {
         opcion4Button.setBackground(backgroundColor);
 
         opcion1Button.addActionListener(e -> {
-            refresh = 1; 
+            refresh = true; 
         });
 
         opcion2Button.addActionListener(e -> {
-            refresh = 2;
+            refresh = true;
         });
 
         opcion3Button.addActionListener(e -> {
-            refresh = 3;
+            refresh = true;
         });
 
         opcion4Button.addActionListener(e -> {
-            refresh = 4; 
+            refresh = true; 
         });
 
         
