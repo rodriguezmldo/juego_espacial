@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.JButton;
 
 
@@ -12,34 +13,34 @@ public class Menu extends JPanel {
 
     public Menu(){
         setFocusable(true);
-        activeWindowMenu();
+        activeWindowMenu(this);
     }
 
-    public void activeWindowMenu(){
+    public void activeWindowMenu(JPanel menuWindow){
 
-        // cramos la ventana de menu
-        JPanel menuWindow = this;
         menuWindow.setLayout(null);
+        setOpaque(false);
 
         // Creamos y colocamos los botones en el panel de la ventana
         JLabel label = new JLabel("Seleccione una opción:");
-        label.setBounds(200, 20, 500, 65);
+        label.setBounds(400, 20, 500, 65);
         menuWindow.add(label);
+        label.setForeground(Color.WHITE);
 
         JButton opcion1Button = new JButton("INICIAR HISTORIA");
-        opcion1Button.setBounds(200, 100, 400, 65);
+        opcion1Button.setBounds(400, 110, 450, 65);
         menuWindow.add(opcion1Button);
-        
-        JButton opcion2Button = new JButton("INICIAR ARQUITED");
-        opcion2Button.setBounds(200, 200, 400, 65);
+
+        JButton opcion2Button = new JButton("INICIAR ARCADES");
+        opcion2Button.setBounds(400, 210, 450, 65);
         menuWindow.add(opcion2Button);
 
         JButton opcion3Button = new JButton("HISTORIAL DE PARTIDA");
-        opcion3Button.setBounds(200, 300, 400, 65);
+        opcion3Button.setBounds(400, 310, 450, 65);
         menuWindow.add(opcion3Button);
 
         JButton opcion4Button = new JButton("SALIR");
-        opcion4Button.setBounds(200, 400, 400, 65);
+        opcion4Button.setBounds(400, 410, 450, 65);
         menuWindow.add(opcion4Button);
 
         // colocamos la fuentes 
@@ -76,8 +77,9 @@ public class Menu extends JPanel {
         });
 
         opcion4Button.addActionListener(e -> {
+            System.exit(0);
         });
 
-        
-    }
+    } 
 }
+
