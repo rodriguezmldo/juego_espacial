@@ -8,7 +8,7 @@ public class Assets {
 	public static float count = 0;
 	public static float MAX_COUNT = 57;
 	
-	public static BufferedImage[] player = new BufferedImage[2];
+	public static BufferedImage shipNormal, shipShot;
 	
 	// effects
 	
@@ -48,6 +48,10 @@ public class Assets {
 	
 	public static void init()
 	{
+		shipNormal = loadImage("/Player/ship0.gif");
+
+		shipShot = loadImage("/Playere/ship1.gif");
+
 		shipHealth = loadImage("/Effects/shipRegenerate.gif");
 		
 		laser = loadImage("/Effects/laser.gif");
@@ -57,7 +61,6 @@ public class Assets {
 		blackHole = loadImage("/CosmicDanger/blackHola.gif");
 		
 		for(int i = 0; i < 2; i++) {
-			player[i] = loadImage("/Player/ship" + i +".gif"); 
 			shipSpeed[i] = loadImage("/Effects/shipBoost" + i + ".gif");
 			shipCadence[i] = loadImage("/Effects/shipCadence" + i + ".gif");
 			shipReduceSpeed[i] = loadImage("/Effects/shipReduce" + i + ".gif");
