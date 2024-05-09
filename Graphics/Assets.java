@@ -1,5 +1,6 @@
 package Graphics;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class Assets {
@@ -12,7 +13,7 @@ public class Assets {
 	
 	// effects
 	
-	public static BufferedImage[] shipSpeed = new BufferedImage[2]; 
+	public static Image shipSpeed = new BufferedImage[2]; 
 	public static BufferedImage[] shipCadence = new BufferedImage[2];
 	public static BufferedImage[] shipReduceSpeed = new BufferedImage[2];
 	public static BufferedImage shipHealth;
