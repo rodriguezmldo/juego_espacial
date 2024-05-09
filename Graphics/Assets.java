@@ -3,8 +3,6 @@ package Graphics;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
 
-import javax.sound.sampled.Clip;
-
 public class Assets {
 	
 	public static boolean loaded = false;
@@ -12,15 +10,18 @@ public class Assets {
 	public static float MAX_COUNT = 57;
 	
 	
-	public static BufferedImage player;
+	public static BufferedImage[] player = new BufferedImage[2];
 	
 	// effects
 	
-	public static BufferedImage speed;
+	public static BufferedImage[] shipSpeed = new BufferedImage[2]; 
+	public static BufferedImage shipCadence;
+	public static BufferedImage[] shipReduceSpeed = new BufferedImage[2];
+	public static BufferedImage shipHealth;
 	
 	// explosion
 	
-	public static BufferedImage[] exp = new BufferedImage[9];
+	public static BufferedImage[] exp = new BufferedImage[5];
 	
 	// lasers
 	
@@ -28,8 +29,8 @@ public class Assets {
 	
 	// CosmicDanger
 	
-	public static BufferedImage[] meteors = new BufferedImage[2];
-    public static BufferedImage[] blackHole = new BufferedImage[2];
+	public static BufferedImage meteors;
+    public static BufferedImage blackHole;
     public static BufferedImage[] planet = new BufferedImage[2];
 ;	
 	// numbers
@@ -45,25 +46,27 @@ public class Assets {
 	
 	// power ups
 	
-	public static BufferedImage gunCadence, shipSpeed, shipReduceSpeed, shipHealth;
+	public static BufferedImage cadence, speed, reduceSpeed, health;
 	
 	public static void init()
 	{
-		speed = loadImage("/effects/fire08.png");
+		shipCadence = loadImage("nave_powerup_cadenia.gif");
+
+		shipHealth = loadImage("nave_recuperando_vida.gif");
 		
-		laser = loadImage("//laserBlue01.png");
+		laser = loadImage("lasegreen.gif");
 		
-		greenLaser = loadImage("/lasers/laserGreen11.png");
-		
-		redLaser = loadImage("/lasers/laserRed01.png");
-		
-		ufo = loadImage("/ships/ufo.png");
-		
-		life = loadImage("/others/life.png");
-		
-		fontBig = loadFont("/fonts/futureFont.ttf", 42);
-		
-		fontMed = loadFont("/fonts/futureFont.ttf", 20);
+		meteors = loadImage("asteroide.gif");
+
+		blackHole = loadImage("agujero_negro.gif");
+
+		cadence = loadImage("powerup_cadencia.gif");
+
+		speed = loadImage("powerup_boost.gif");
+
+		reduceSpeed = loadImage("powerup_reduce.gif");
+
+		health = loadImage("vida.gif");
 		
 		for(int i = 0; i < 3; i++)
 			shieldEffect[i] = loadImage("/effects/shield" + (i + 1) +".png"); 
