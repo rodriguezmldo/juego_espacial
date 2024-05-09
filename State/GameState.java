@@ -9,7 +9,7 @@ public class GameState {
     private Spacecraft player;
 
     public GameState () {
-        player = new Spacecraft(new Vector2D(0, 0), Assets.ship0);
+        player = new Spacecraft(new Vector2D(0, 0), Assets.player[0]);
     }
 
     public void update () {

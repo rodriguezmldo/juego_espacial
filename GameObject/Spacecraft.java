@@ -21,12 +21,10 @@ public class Spacecraft extends CosmicObject {
         return missiles;
     }
 
-    @Override
     public void update() {
         
     }
 
-    @Override
     public void draw(Graphics g) {
 
     }
