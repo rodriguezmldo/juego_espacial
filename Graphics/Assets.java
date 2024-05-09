@@ -57,20 +57,13 @@ public class Assets {
 		meteors = loadImage("/CosmicDanger/asteroid.gif");
 
 		blackHole = loadImage("/CosmicDanger/blackHola.gif");
-
-		cadence = loadImage("/PowerUp/powerupCadence.gif");
-
-		speed = loadImage("/PowerUp/powerupBoost.gif");
-
-		reduceSpeed = loadImage("/PowerUp/powerupReduce.gif");
-
-		health = loadImage("/PowerUp/powerupHealth.gif");
 		
 		for(int i = 0; i < 2; i++) {
 			player[i] = loadImage("/Player/ship" + i +".gif"); 
 			shipSpeed[i] = loadImage("/Effects/shipBoost" + i + ".gif");
 			shipCadence[i] = loadImage("/Effects/shipCadence" + i + ".gif");
 			shipReduceSpeed[i] = loadImage("/Effects/shipReduce" + i + ".gif");
+			planet[i] = loadImage("/CosmicDanger/planet" + i + ".gif");
 		}
 		
 		for(int i = 0; i < exp.length; i++)
@@ -79,22 +72,13 @@ public class Assets {
 		for(int i = 0; i < numbers.length; i++)
 			numbers[i] = loadImage("/numbers/"+ i +".png");
 		
-		backgroundMusic = loadSound("/sounds/backgroundMusic.wav");
-		explosion = loadSound("/sounds/explosion.wav");
-		playerLoose = loadSound("/sounds/playerLoose.wav");
-		playerShoot = loadSound("/sounds/playerShoot.wav");
-		ufoShoot = loadSound("/sounds/ufoShoot.wav");
-		powerUp = loadSound("/sounds/powerUp.wav");
-		
 		greyBtn = loadImage("/ui/grey_button.png");
 		blueBtn = loadImage("/ui/blue_button.png");
 		
-		orb = loadImage("/powers/orb.png");
-		doubleScore = loadImage("/powers/doubleScore.png");
-		doubleGun = loadImage("/powers/doubleGun.png");
-		fastFire = loadImage("/powers/fastFire.png");
-		star = loadImage("/powers/star.png");
-		shield = loadImage("/powers/shield.png");
+		cadence = loadImage("/PowerUp/powerupCadence.gif");
+		speed = loadImage("/PowerUp/powerupBoost.gif");
+		reduceSpeed = loadImage("/PowerUp/powerupReduce.gif");
+		health = loadImage("/PowerUp/powerupHealth.gif");
 		
 		// ===========================================================
 		
