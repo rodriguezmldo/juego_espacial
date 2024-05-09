@@ -8,7 +8,7 @@ class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
 
     public BackgroundPanel() {
-        backgroundImage = new ImageIcon("Res/Effects/background.jpg");
+        backgroundImage = new ImageIcon("Res/BackGroundFile/background.jpg");
         setLayout(new BorderLayout());
     }
 
@@ -24,9 +24,9 @@ public class Main {
     public static void main(String[] args) {
         JFrame ventana = new JFrame("GAMING NAVE");
 
-        UIManager.put("nimbusBase", new Color(60, 60, 60)); // Color de fondo
-        UIManager.put("nimbusBlueGrey", new Color(200, 200, 200)); // Color de resaltado
-        UIManager.put("nimbusBorder", new Color(100, 100, 100)); // Color del borde
+        UIManager.put("nimbusBase", new Color(15, 15, 25)); // Color de fondo oscuro
+        UIManager.put("nimbusBlueGrey", new Color(30, 30, 40)); // Color de resaltado oscuro
+        UIManager.put("nimbusBorder", new Color(10, 10, 15)); // Color del borde oscuro
 
         ventana.setSize(1280, 720);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
