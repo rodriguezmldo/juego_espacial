@@ -1,5 +1,7 @@
 package GameObject;
 
+import java.awt.Graphics;
+
 public class CosmicDanger extends CosmicObject {
     protected Spacecraft spacecraft; // Agregar esta línea
     private int lifeCapsulesPenalty;
@@ -28,5 +30,17 @@ public class CosmicDanger extends CosmicObject {
         this.damage = damage;
         this.lifeCapsulesPenalty = lifeCapsulesPenalty;
         this.missilesPenalty = missilesPenalty;
+    }
+
+    @Override
+    public void update(float dt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'draw'");
     }
 }

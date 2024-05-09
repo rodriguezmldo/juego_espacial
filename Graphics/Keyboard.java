@@ -25,7 +25,7 @@ public class Keyboard extends JPanel implements KeyListener {
     }
 
     private void cargarImagen() {
-        ImageIcon icono = new ImageIcon(getClass().getResource("nave_volando.gif"));
+        ImageIcon icono = new ImageIcon(getClass().getResource(Assets.player[0]));
         nave = new JLabel(icono);
         nave.setSize(icono.getIconWidth(), icono.getIconHeight());
     }

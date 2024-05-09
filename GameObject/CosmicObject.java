@@ -1,5 +1,6 @@
 package GameObject;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import Math.Vector2D;
 
@@ -17,6 +18,10 @@ public abstract class CosmicObject {
         this.position = position;
         this.texture = texture;
     }
+
+    public abstract void update(float dt);
+	
+	public abstract void draw(Graphics g);
 
     public BufferedImage getTexture() {
         return texture;

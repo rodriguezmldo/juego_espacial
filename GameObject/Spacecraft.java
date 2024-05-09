@@ -23,12 +23,13 @@ public class Spacecraft extends CosmicObject {
         return missiles;
     }
 
-    public void update() {
+    @Override
+    public void update(float t) {
         if(Keyboard.VK_A){
             position.setX(position.getX() + 1);
         }
     }
-
+    @Override
     public void draw(Graphics g) {
         g.drawImage(texture, (int)position.getX(), (int)position.getY(), null);
     }
