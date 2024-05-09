@@ -2,8 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 import Graphics.Menu;
+import Graphics.Nave;
 
-//prueba 2
+
 class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
 
@@ -36,6 +37,12 @@ public class Main {
 
         ventana.add(backgroundPanel);
         ventana.setResizable(false);
+        ventana.setVisible(true);
+
+        Nave nave = new Nave();
+        ventana.add(nave);
+        ventana.setSize(1500, 1000); 
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
     }
 }
