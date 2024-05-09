@@ -1,13 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 
+
 import Graphics.Menu;
 
 class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
 
     public BackgroundPanel() {
-        backgroundImage = new ImageIcon("Res/BackGround/background.jpg");
+        backgroundImage = new ImageIcon("Res/BackGroundFile/background.jpg");
         setLayout(new BorderLayout());
     }
 

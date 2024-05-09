@@ -7,26 +7,23 @@ import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.ImageIcon;
+import java.awt.Image;
 
-public class Keyboard extends JPanel implements KeyListener {
-    public static final boolean VK_A = false;
-    private JLabel nave;
+
+public class Keyboard extends JLabel implements KeyListener {
     private Set<Integer> teclasPresionadas = new HashSet<>();
-    private int velocidad = 30; 
-    
+    private int velocidad = 30;
+
     public Keyboard(){
-        setLayout(null); // Establecer el layout como null para poder posicionar los componentes manualmente
+        cargarImagen();
         setFocusable(true);
         addKeyListener(this);
-        cargarImagen(); 
-        // Establecer las coordenadas iniciales
-        nave.setLocation(100, 440);
-        add(nave); // Agregar el JLabel nave al panel
     }
 
     private void cargarImagen() {
-        nave = new JLabel(new ImageIcon(Assets.shipNormal)); // Cargar la imagen de la nave desde Assets
-        nave.setSize(nave.getPreferredSize());
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Res/Player/ship0.gif"));
+        setIcon(icono);
+        setSize(icono.getIconWidth(), icono.getIconHeight());
     }
 
     @Override
@@ -46,9 +43,9 @@ public class Keyboard extends JPanel implements KeyListener {
     private void mover() {
         int dx = 0;
         int dy = 0;
-        
-        int x = nave.getX();
-        int y = nave.getY();
+
+        int x = getX();
+        int y = getY();
 
         if (teclasPresionadas.contains(KeyEvent.VK_UP) || teclasPresionadas.contains(KeyEvent.VK_W)) {
             dy -= velocidad;
@@ -63,20 +60,20 @@ public class Keyboard extends JPanel implements KeyListener {
             dx += velocidad;
         }
 
-        int LimitX = x + dx;   
+        int LimitX = x + dx;
         int LimitY = y + dy;
 
         if (LimitX < 0) {
             LimitX = 0;
-        } else if (LimitX > getWidth() - nave.getWidth()) {
-            LimitX = getWidth() - nave.getWidth();
+        } else if (LimitX > getParent().getWidth() - getWidth()) {
+            LimitX = getParent().getWidth() - getWidth();
         }
 
         if (LimitY < 0) {
             LimitY = 0;
-        } else if (LimitY > getHeight() - nave.getHeight()) {
-            LimitY = getHeight() - nave.getHeight();
+        } else if (LimitY > getParent().getHeight() - getHeight()) {
+            LimitY = getParent().getHeight() - getHeight();
         }
-        nave.setLocation(LimitX, LimitY);
+        setLocation(LimitX, LimitY);
     }
 }
