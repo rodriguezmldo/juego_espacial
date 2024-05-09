@@ -8,7 +8,6 @@ public class Assets {
 	public static float count = 0;
 	public static float MAX_COUNT = 57;
 	
-	
 	public static BufferedImage[] player = new BufferedImage[2];
 	
 	// effects
@@ -78,8 +77,6 @@ public class Assets {
 		speed = loadImage("/PowerUp/powerupBoost.gif");
 		reduceSpeed = loadImage("/PowerUp/powerupReduce.gif");
 		health = loadImage("/PowerUp/powerupHealth.gif");
-		
-		// ===========================================================
 		
 		loaded = true;
 		

@@ -1,6 +1,7 @@
 package GameObject;
 
 import Math.Vector2D;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -18,5 +19,15 @@ public class Spacecraft extends CosmicObject {
 
     public int getMissiles() {
         return missiles;
+    }
+
+    @Override
+    public void update() {
+        
+    }
+
+    @Override
+    public void draw(Graphics g) {
+
     }
 }
