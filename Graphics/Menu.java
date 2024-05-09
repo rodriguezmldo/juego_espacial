@@ -2,11 +2,14 @@ package Graphics;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 
 public class Menu extends JPanel {
@@ -65,15 +68,15 @@ public class Menu extends JPanel {
         opcion4Button.setBackground(backgroundColor);
 
         opcion1Button.addActionListener(e -> {
-
+            showOption1();
         });
 
         opcion2Button.addActionListener(e -> {
-
+            showOption2();
         });
 
         opcion3Button.addActionListener(e -> {
-
+            showOption3();
         });
 
         opcion4Button.addActionListener(e -> {
@@ -81,5 +84,28 @@ public class Menu extends JPanel {
         });
 
     } 
+
+    private void showOption1() {
+        
+    }
+
+    private void showOption2() {
+        // Crear y mostrar la ventana de la opción 2
+        JFrame option2Window = new JFrame("Option 2");
+        option2Window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        option2Window.setSize(400, 300);
+        option2Window.setLocationRelativeTo(this);
+        option2Window.setVisible(true);
+    }
+
+    private void showOption3() {
+        // Crear y mostrar la ventana de la opción 3
+        List<String> lineas = History.obtenerLineas("SaveData\\DataFiles\\profiles.txt");
+
+        SwingUtilities.invokeLater(() -> {
+            History gameHistory = new History(lineas);
+            gameHistory.setVisible(true);
+        });
+    }
 }
 

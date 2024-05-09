@@ -1,10 +1,15 @@
 package Graphics;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class History extends JFrame {
 
@@ -14,11 +19,26 @@ public class History extends JFrame {
 
     private void initUI(List<String> lineas) {
         setTitle("Etiquetas Posicionadas");
+        setTitle("Etiquetas Posicionadas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 400);
-        setLocationRelativeTo(null); // Centrar la ventana en la pantalla
+        setSize(1280, 720);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new GridBagLayout());
+        JPanel panel = new JPanel(new GridBagLayout()) {
+        
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                try {
+                    BufferedImage image = ImageIO.read(new File("Res/BackGround/background.jpg"));
+                    g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;

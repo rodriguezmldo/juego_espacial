@@ -57,5 +57,14 @@ public class profiles {
 
         inData.close();
     }
+
+    public static String shortNames(String name) {
+        int maxLength = 15;
+    
+        // Delimitar el string y rellenar con espacios en blanco si es necesario
+        String delimitedString = name.length() <= maxLength ? name : name.substring(0, maxLength);
+    
+        return String.format("%-" + maxLength + "s", delimitedString);
+    }
     
 }

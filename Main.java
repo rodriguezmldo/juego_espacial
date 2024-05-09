@@ -38,11 +38,5 @@ public class Main {
         ventana.add(backgroundPanel);
         ventana.setResizable(false);
         ventana.setVisible(true);
-
-        Keyboard nave = new Keyboard();
-        ventana.add(nave);
-        ventana.setSize(1500, 1000); 
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
     }
 }
