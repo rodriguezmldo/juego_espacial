@@ -7,7 +7,6 @@ import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.ImageIcon;
-import java.awt.Image;
 
 public class Nave extends JPanel implements KeyListener {
     private JLabel nave;
