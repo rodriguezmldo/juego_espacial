@@ -21,16 +21,11 @@ public class Nave extends JPanel implements KeyListener {
     }
 
     private void cargarImagen() {
-        try {
-            ImageIcon icono = new ImageIcon("Graphics/Resources/nave_volando.gif");
-            Image imagen = icono.getImage();
-            Image nuevaImagen = imagen.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
-            nave = new JLabel(new ImageIcon(nuevaImagen));
-            add(nave);
-        } catch (Exception e) {
-            System.out.println("Error al cargar la imagen: " + e.getMessage());
-        }
+        ImageIcon icono = new ImageIcon(getClass().getResource("Graphics/Resources/nave_volando.gif")); // Cambia el nombre del archivo al de tu GIF
+        nave = new JLabel(icono);
+        add(nave);
     }
+    
 
     @Override
     public void keyTyped(KeyEvent e) {}
