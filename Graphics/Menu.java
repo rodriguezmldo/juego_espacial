@@ -20,6 +20,7 @@ public class Menu extends JPanel {
 
         // cramos la ventana de menu
         JPanel menuWindow = this;
+        Nave shipGame = new Nave();
         menuWindow.setLayout(null);
 
         // Creamos y colocamos los botones en el panel de la ventana
@@ -65,11 +66,16 @@ public class Menu extends JPanel {
         opcion4Button.setBackground(backgroundColor);
 
         opcion1Button.addActionListener(e -> {
-            JOptionPane.showMessageDialog(menuWindow, "Has seleccionado la Opción 1");
+            menuWindow.add(shipGame);
+
+            menuWindow.revalidate();
+            menuWindow.repaint();
         });
 
         opcion2Button.addActionListener(e -> {
             JOptionPane.showMessageDialog(menuWindow, "Has seleccionado la Opción 2");
+
+
         });
 
         opcion3Button.addActionListener(e -> {
