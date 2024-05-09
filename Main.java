@@ -9,7 +9,7 @@ class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
 
     public BackgroundPanel() {
-        backgroundImage = new ImageIcon("Res/BackGroundFile/background.jpg");
+        backgroundImage = new ImageIcon("Res/BackGround/background.jpg");
         setLayout(new BorderLayout());
     }
 
