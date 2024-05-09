@@ -41,16 +41,17 @@ public class profiles {
 
         do {
             try {
+                String player = shortNames(name);
                 // Escribir los datos en el archivo
                 BufferedWriter writer = new BufferedWriter(new FileWriter(nameFile, true)); // true para agregar al final del archivo
-                writer.write(name + "," + victories + "," + gamePlayed + "," + defeats + "," + destroyedObjects);
+                writer.write(player + "  " + victories + "      " + gamePlayed + "      " + defeats + "      " + destroyedObjects);
                 writer.newLine(); // Nueva línea para el próximo registro
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            System.out.print("Nuevo usuario: ");
+            System.out.print("Nueva partida: ");
             newUsuario = inData.nextLine();
 
         } while (newUsuario.equals("Si"));

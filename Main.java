@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 import Graphics.Menu;
-import Graphics.Keyboard;
-
 
 class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
