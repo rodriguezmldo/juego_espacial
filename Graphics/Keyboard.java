@@ -8,12 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.ImageIcon;
 
-public class Nave extends JPanel implements KeyListener {
+public class Keyboard extends JPanel implements KeyListener {
+    public static final boolean VK_A = false;
     private JLabel nave;
     private Set<Integer> teclasPresionadas = new HashSet<>();
     private int velocidad = 30; 
     
-    public Nave(){
+    public Keyboard(){
         setLayout(null); // Establecer el layout como null para poder posicionar los componentes manualmente
         setFocusable(true);
         addKeyListener(this);

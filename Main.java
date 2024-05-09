@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import Graphics.Menu;
-import Graphics.Nave;
+import Graphics.Keyboard;
 
 
 class BackgroundPanel extends JPanel {
@@ -39,7 +39,7 @@ public class Main {
         ventana.setResizable(false);
         ventana.setVisible(true);
 
-        Nave nave = new Nave();
+        Keyboard nave = new Keyboard();
         ventana.add(nave);
         ventana.setSize(1500, 1000); 
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
