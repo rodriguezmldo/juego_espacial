@@ -1,24 +1,18 @@
 package Graphics;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
-import java.awt.Frame;
 
 
 public class Menu extends JPanel {
 
-    private boolean refresh;
-
-    public Menu(boolean refresh){
+    public Menu(){
         setFocusable(true);
         activeWindowMenu();
-        this.refresh = refresh;
-
     }
 
     public void activeWindowMenu(){
@@ -70,19 +64,18 @@ public class Menu extends JPanel {
         opcion4Button.setBackground(backgroundColor);
 
         opcion1Button.addActionListener(e -> {
-            refresh = true; 
+
         });
 
         opcion2Button.addActionListener(e -> {
-            refresh = true;
+
         });
 
         opcion3Button.addActionListener(e -> {
-            refresh = true;
+
         });
 
         opcion4Button.addActionListener(e -> {
-            refresh = true; 
         });
 
         

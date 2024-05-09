@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import javax.swing.JFrame;
 
 import Graphics.Menu;
@@ -9,8 +11,12 @@ public class Main {
 
         JFrame ventana = new JFrame(" Visible");
         
-        ventana.setSize(800, 1000);
+        ventana.setSize(1280, 720);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        ventana.getContentPane().setBackground(Color.WHITE);
+        ventana.add(new Menu());
+
         ventana.setVisible(true);
         
     }
