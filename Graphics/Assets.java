@@ -13,7 +13,7 @@ public class Assets {
 	
 	// effects
 	
-	public static Image shipSpeed = new BufferedImage[2]; 
+	public static BufferedImage[] shipSpeed = new BufferedImage[2]; 
 	public static BufferedImage[] shipCadence = new BufferedImage[2];
 	public static BufferedImage[] shipReduceSpeed = new BufferedImage[2];
 	public static BufferedImage shipHealth;

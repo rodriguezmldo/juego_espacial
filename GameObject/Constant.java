@@ -16,48 +16,40 @@ public class Constant {
 	public static final double ACC = 0.2;
 	public static final double PLAYER_MAX_VEL = 7.0;
 	public static final long FLICKER_TIME = 200;
-	public static final long SPAWNING_TIME = 3000;
+	public static final long SPAWNING_TIME = 1500;
 	public static final long GAME_OVER_TIME = 3000;
 	
 	// Laser properties
 	
-	public static final double LASER_VEL = 15.0;
+	public static final double LASER_VEL = 10.0;
 	
 	// ASTEROID properties
 	
-	public static final double ASTEROID_INIT_VEL = 2.0;
+	public static final int ASTEROID_INIT_VEL = 2;
 	
 	public static final int ASTEROID_SCORE = 20;
 	
-	public static final double ASTEROID_MAX_VEL = 6.0;
+	public static final int ASTEROID_MAX_VEL = 6;
+
+    // Planet properties
+
+    public static final double PLANET_INI_VELOCIDAD = 3;
+
+    public static final int PLANET_SCORE = 15;
+
+    public static final double PLANET_MAX_VEL = 5;
+ 
 	
 	// Ufo properties
+
+    public static final int BLACKHOLE_INI_VEL = 4;
 	
-	public static final int BLACKHOLE_MAX_VEL = 3;
+	public static final int BLACKHOLE_MAX_VEL = 4;
 	
-	public static long BLACKHOLE_FIRE_RATE = 1000;
-	
-	public static double BLACKHOLE_ANGLE_RANGE = Math.PI / 2;
-	
-	public static final int BLACKHOLE_SCORE = 40;
-	
-	public static final long BLACKHOLE_SPAWN_RATE = 10000;
-	
-	public static final String PLAY = "PLAY";
-	
-	public static final String EXIT = "EXIT";
-	
-	public static final int LOADING_BAR_WIDTH = 500;
-	public static final int LOADING_BAR_HEIGHT = 50;
-	
-	public static final String RETURN = "RETURN";
-	public static final String HIGH_SCORES = "HIGHEST SCORES";
-	
-	public static final String SCORE = "SCORE";
-	public static final String DATE = "DATE";
+	public static final int BLACKHOLE_SCORE = 60;
 	
 	public static final String SCORE_PATH = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() +
-			"\\Space_Ship_Game\\data.json"; // data.xml if you use XMLParser
+			"/SaveData/DataFiles/profiles.txt"; // data.xml if you use XMLParser
 	
 	// This variables are required to use XMLParser
 	

@@ -38,7 +38,7 @@ public class Asteroid extends MoveObject{
 			velocity = velocity.add(reversedVelocity.normalize().scale(0.01f));
 		}
 		
-		velocity = velocity.limit(Constant.METEOR_MAX_VEL);
+		velocity = velocity.limit(Constant.ASTEROID_MAX_VEL);
 		
 		position = position.add(velocity);
 		
@@ -58,7 +58,7 @@ public class Asteroid extends MoveObject{
 	
 	private Vector2D fleeForce() {
 		Vector2D desiredVelocity = gameState.getPlayer().getCenter().subtract(getCenter());
-		desiredVelocity = (desiredVelocity.normalize()).scale(Constant.METEOR_MAX_VEL);
+		desiredVelocity = (desiredVelocity.normalize()).scale(Constant.ASTEROID_MAX_VEL);
 		Vector2D v = new Vector2D(velocity);
 		return v.subtract(desiredVelocity);
 	}
@@ -66,7 +66,7 @@ public class Asteroid extends MoveObject{
 	@Override
 	public void Destroy(){
 		gameState.playExplosion(position);
-		gameState.addScore(Constant.METEOR_SCORE, position);
+		gameState.addScore(Constant.ASTEROID_SCORE, position);
 		super.Destroy();
 	}
 	
