@@ -2,15 +2,23 @@ package Graphics;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
+
+import java.awt.event.ActionListener;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
+import java.awt.event.ActionEvent;
 
 public class Menu extends JPanel {
 
+    
     public Menu(){
         setFocusable(true);
         activeWindowMenu(this);
@@ -43,7 +51,7 @@ public class Menu extends JPanel {
         opcion4Button.setBounds(400, 410, 450, 65);
         menuWindow.add(opcion4Button);
 
-        // colocamos la fuentes 
+        // colocamos la fuentes
         Font font = new Font("Times New Roman", Font.BOLD, 18);
         opcion1Button.setFont(font);
         opcion2Button.setFont(font);
@@ -64,22 +72,55 @@ public class Menu extends JPanel {
         opcion3Button.setBackground(backgroundColor);
         opcion4Button.setBackground(backgroundColor);
 
-        opcion1Button.addActionListener(e -> {
-
+        opcion1Button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                startGame(menuWindow);
+            }
         });
 
         opcion2Button.addActionListener(e -> {
-
+            showOption2();
         });
 
         opcion3Button.addActionListener(e -> {
-
+            showOption3();
         });
 
         opcion4Button.addActionListener(e -> {
             System.exit(0);
         });
+    }
 
-    } 
+
+    private void startGame(JPanel menuWindow) {
+        menuWindow.removeAll(); // Elimina todos los componentes del panel del menú
+        
+        Keyboard keyboard = new Keyboard();
+        keyboard.setSize(700, 100); // Establece el tamaño de la Keyboard
+        keyboard.setLocation(100, 300); // Establece la posición inicial de la Keyboard
+        menuWindow.add(keyboard); // Agrega la Keyboard al panel
+        menuWindow.revalidate(); // Vuelve a validar el panel
+        menuWindow.repaint(); // Vuelve a dibujar el panel
+        keyboard.requestFocusInWindow(); // Hacer que la Keyboard tenga el foco para poder recibir eventos de teclado
+    }
+
+    private void showOption2() {
+        // Crear y mostrar la ventana de la opción 2
+        JFrame option2Window = new JFrame("Option 2");
+        option2Window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        option2Window.setSize(400, 300);
+        option2Window.setLocationRelativeTo(this);
+        option2Window.setVisible(true);
+    }
+
+    private void showOption3() {
+        // Crear y mostrar la ventana de la opción 3
+        List<String> lineas = History.obtenerLineas("SaveData\\DataFiles\\profiles.txt");
+
+        SwingUtilities.invokeLater(() -> {
+            History gameHistory = new History(lineas);
+            gameHistory.setVisible(true);
+        });
+    }
 }
 

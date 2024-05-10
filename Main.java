@@ -1,15 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 
-import Graphics.Menu;
-import Graphics.Keyboard;
 
+import Graphics.Menu;
 
 class BackgroundPanel extends JPanel {
     private ImageIcon backgroundImage;
 
     public BackgroundPanel() {
-        backgroundImage = new ImageIcon("Res/BackGround/background.jpg");
+        backgroundImage = new ImageIcon("Res/BackGroundFile/background.jpg");
         setLayout(new BorderLayout());
     }
 
@@ -37,12 +36,6 @@ public class Main {
 
         ventana.add(backgroundPanel);
         ventana.setResizable(false);
-        ventana.setVisible(true);
-
-        Keyboard nave = new Keyboard();
-        ventana.add(nave);
-        ventana.setSize(1500, 1000); 
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
     }
 }

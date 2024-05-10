@@ -1,3 +1,4 @@
+Nombre Jugador   Partidas     Victorias       Derrotas       Objetos Destruidos
 Pedro Sanchez   30       20       10       400
 Francisco         40       20       20       465
 Leslye            30       20       10       400

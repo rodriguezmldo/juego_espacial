@@ -41,21 +41,31 @@ public class profiles {
 
         do {
             try {
+                String player = shortNames(name);
                 // Escribir los datos en el archivo
                 BufferedWriter writer = new BufferedWriter(new FileWriter(nameFile, true)); // true para agregar al final del archivo
-                writer.write(name + "," + victories + "," + gamePlayed + "," + defeats + "," + destroyedObjects);
+                writer.write(player + "  " + victories + "      " + gamePlayed + "      " + defeats + "      " + destroyedObjects);
                 writer.newLine(); // Nueva línea para el próximo registro
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            System.out.print("Nuevo usuario: ");
+            System.out.print("Nueva partida: ");
             newUsuario = inData.nextLine();
 
         } while (newUsuario.equals("Si"));
 
         inData.close();
+    }
+
+    public static String shortNames(String name) {
+        int maxLength = 15;
+    
+        // Delimitar el string y rellenar con espacios en blanco si es necesario
+        String delimitedString = name.length() <= maxLength ? name : name.substring(0, maxLength);
+    
+        return String.format("%-" + maxLength + "s", delimitedString);
     }
     
 }
