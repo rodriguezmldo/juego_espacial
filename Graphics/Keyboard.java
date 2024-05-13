@@ -1,21 +1,53 @@
 package Graphics;
 
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
-import javax.swing.ImageIcon;
 
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Keyboard extends JLabel implements KeyListener {
+public class Keyboard extends JLabel {
+    private static final int DELAY = 10; // Tiempo de retardo en milisegundos
+    private int dx = 0;
+    private int dy = 0;
+    private int velocidad = 6;
+    private Timer timer;
     private Set<Integer> teclasPresionadas = new HashSet<>();
-    private int velocidad = 30;
+    private List<Bala> balas = new ArrayList<>();
 
-    public Keyboard(){
+    public Keyboard() {
         cargarImagen();
         setFocusable(true);
-        addKeyListener(this);
+        timer = new Timer(DELAY, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mover();
+            }
+        });
+        timer.start();
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                teclasPresionadas.add(e.getKeyCode());
+                actualizarMovimiento();
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    disparar();
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                teclasPresionadas.remove(e.getKeyCode());
+                actualizarMovimiento();
+            }
+        });
     }
 
     private void cargarImagen() {
@@ -24,27 +56,9 @@ public class Keyboard extends JLabel implements KeyListener {
         setSize(icono.getIconWidth(), icono.getIconHeight());
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        teclasPresionadas.add(e.getKeyCode());
-        mover();
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        teclasPresionadas.remove(e.getKeyCode());
-    }
-
-    private void mover() {
-        int dx = 0;
-        int dy = 0;
-
-        int x = getX();
-        int y = getY();
-
+    private void actualizarMovimiento() {
+        dx = 0;
+        dy = 0;
         if (teclasPresionadas.contains(KeyEvent.VK_UP) || teclasPresionadas.contains(KeyEvent.VK_W)) {
             dy -= velocidad;
         }
@@ -57,21 +71,34 @@ public class Keyboard extends JLabel implements KeyListener {
         if (teclasPresionadas.contains(KeyEvent.VK_RIGHT) || teclasPresionadas.contains(KeyEvent.VK_D)) {
             dx += velocidad;
         }
+    }
 
-        int LimitX = x + dx;
-        int LimitY = y + dy;
+    private void mover() {
+        int x = getX() + dx;
+        int y = getY() + dy;
 
-        if (LimitX < 0) {
-            LimitX = 0;
-        } else if (LimitX > getParent().getWidth() - getWidth()) {
-            LimitX = getParent().getWidth() - getWidth();
+        x = Math.max(0, Math.min(getParent().getWidth() - getWidth(), x));
+        y = Math.max(0, Math.min(getParent().getHeight() - getHeight(), y));
+
+        setLocation(x, y);
+        moverBalas();
+    }
+
+    private void disparar() {
+        Bala bala = new Bala(getX() + getWidth(), getY() + getHeight() / 2);
+        getParent().add(bala, 0);
+        balas.add(bala);
+    }
+
+    public void moverBalas() {
+        Iterator<Bala> iterator = balas.iterator();
+        while (iterator.hasNext()) {
+            Bala bala = iterator.next();
+            bala.mover();
+            if (bala.fueraDePantalla()) {
+                getParent().remove(bala);
+                iterator.remove();
+            }
         }
-
-        if (LimitY < 0) {
-            LimitY = 0;
-        } else if (LimitY > getParent().getHeight() - getHeight()) {
-            LimitY = getParent().getHeight() - getHeight();
-        }
-        setLocation(LimitX, LimitY);
     }
 }

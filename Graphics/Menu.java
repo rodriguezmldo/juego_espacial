@@ -94,16 +94,14 @@ public class Menu extends JPanel {
 
     private void startGame(JPanel menuWindow) {
         menuWindow.removeAll(); // Elimina todos los componentes del panel del menú
-        
+
         Keyboard keyboard = new Keyboard();
-        keyboard.setSize(700, 100); // Establece el tamaño de la Keyboard
-        keyboard.setLocation(100, 300); // Establece la posición inicial de la Keyboard
+        keyboard.setLocation(100, 300); // Establ ece la posición inicial de la Keyboard(la nave donde aparece)
         menuWindow.add(keyboard); // Agrega la Keyboard al panel
         menuWindow.revalidate(); // Vuelve a validar el panel
         menuWindow.repaint(); // Vuelve a dibujar el panel
         keyboard.requestFocusInWindow(); // Hacer que la Keyboard tenga el foco para poder recibir eventos de teclado
     }
-
     private void showOption2() {
         // Crear y mostrar la ventana de la opción 2
         JFrame option2Window = new JFrame("Option 2");
