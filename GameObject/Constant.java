@@ -6,8 +6,8 @@ public class Constant {
 	
 	// frame dimensions
 	
-	public static final int WIDTH = 1000;
-	public static final int HEIGHT = 600;
+	public static final int WIDTH = 1280;
+	public static final int HEIGHT = 720;
 	
 	// player properties
 	
@@ -40,13 +40,14 @@ public class Constant {
     public static final double PLANET_MAX_VEL = 5;
  
 	
-	// Ufo properties
+	// Blackhole properties
 
     public static final int BLACKHOLE_INI_VEL = 4;
 	
 	public static final int BLACKHOLE_MAX_VEL = 4;
 	
 	public static final int BLACKHOLE_SCORE = 60;
+	
 	
 	public static final String SCORE_PATH = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() +
 			"/SaveData/DataFiles/profiles.txt"; // data.xml if you use XMLParser

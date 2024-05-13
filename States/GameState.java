@@ -14,7 +14,6 @@ import GameObject.Asteroid;
 import GameObject.MoveObject;
 import GameObject.Spacecraft;
 import GameObject.PowerUps;
-import GameObject.Size;
 import Graphics.Animation;
 import Graphics.Assets;
 import io.JSONParser;
@@ -46,7 +45,7 @@ public class GameState extends State{
 	
 	public GameState()
 	{
-		player = new Player(PLAYER_START_POSITION, new Vector2D(),
+		player = new Spacecraft(PLAYER_START_POSITION, new Vector2D(),
 				Constant.PLAYER_MAX_VEL, Assets.shipNormal, this);
 		
 		gameOver = false;
@@ -68,11 +67,6 @@ public class GameState extends State{
 		
 		Color c = Color.WHITE;
 		String text = "+" + value + " score";
-		if(player.isDoubleScoreOn()) {
-			c = Color.YELLOW;
-			value = value * 2;
-			text = "+" + value + " score" + " (X2)";
-		}
 		
 		score += value;
     }
@@ -97,7 +91,6 @@ public class GameState extends State{
 					Constant.Asteroid_INIT_VEL*Math.random() + 1,
 					texture,
 					this,
-					Size.BIG
 					));
 			
 		}
@@ -112,7 +105,7 @@ public class GameState extends State{
 				));
 	}
 	
-	private void spawnUfo(){
+	private void spawnBlackhole(){
 		
 		int rand = (int) (Math.random()*2);
 		

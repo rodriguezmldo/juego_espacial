@@ -27,7 +27,6 @@ public abstract class MoveObject extends CosmicObject{
 		this.gameState = gameState;
 		width = texture.getWidth();
 		height = texture.getHeight();
-		angle = 0;
 		Dead = false;
 	}
 	
@@ -85,8 +84,6 @@ public abstract class MoveObject extends CosmicObject{
 	
 	protected void Destroy(){
 		Dead = true;
-		if(!(this instanceof Laser) && !(this instanceof PowerUps))
-			explosion.play();
 	}
 	
 	protected Vector2D getCenter(){

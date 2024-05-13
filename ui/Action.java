@@ -1,4 +1,4 @@
-package Graphics;
+package ui;
 
 public interface Action {
 	

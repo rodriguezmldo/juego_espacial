@@ -1,13 +1,11 @@
 package Graphics;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.ImageIcon;
-import java.awt.Image;
 
 
 public class Keyboard extends JLabel implements KeyListener {

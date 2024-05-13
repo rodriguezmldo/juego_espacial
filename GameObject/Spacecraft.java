@@ -43,6 +43,12 @@ public class Spacecraft extends MoveObject{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'draw'");
     }
+
+
+    public boolean isSpawning() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isSpawning'");
+    }
 	
 
 }
