@@ -1,95 +1,74 @@
 package Graphics;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-public class History extends JFrame {
-
-    public History (List<String> lineas) {
-        initUI(lineas);
+public class History extends JPanel {
+    public History() {
+        loadHistory();
+        setFocusable(true);
     }
 
-    private void initUI(List<String> lineas) {
-        setTitle("Etiquetas Posicionadas");
-        setTitle("Etiquetas Posicionadas");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1280, 720);
-        setResizable(false);
-        setLocationRelativeTo(null);
+    private void loadHistory() {
+        List<String> lines = getLines("SaveData\\DataFiles\\profiles.txt");
+        createHistoryPanel(lines);
+    }
 
-        JPanel panel = new JPanel(new GridBagLayout()) {
-        
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                try {
-                    BufferedImage image = ImageIO.read(new File("Res/BackGround/background.jpg"));
-                    g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+    private List<String> getLines(String filePath) {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line.trim());
             }
-        };
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al leer archivo: " + e.getMessage());
+        }
+        return lines;
+    }
 
+    private void createHistoryPanel(List<String> lines) {
+        LoadBackground historyGame = new LoadBackground();
+        historyGame.setPreferredSize(new Dimension(1280, 730));
+    
+        Color backgroundColor = Color.decode("#663399");
+        Font font = new Font("Times New Roman", Font.BOLD, 20);
+    
+        GridBagLayout layout = new GridBagLayout();
+        historyGame.setLayout(layout);
+    
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.insets = new Insets(5, 0, 5, 0); // Espacio entre etiquetas
-        Color backgroundColor = Color.decode("#663399");
-        Font font = new Font("Times New Roman", Font.BOLD, 20);
-
-        for (String texto : lineas) {
-            JLabel etiqueta = new JLabel(texto);
-            // Configurar características de la etiqueta
-            etiqueta.setPreferredSize(new Dimension(500, 30)); // Establecer tamaño
-            etiqueta.setBackground(backgroundColor); // Establecer color de fondo
-            etiqueta.setOpaque(true); // Hacer el fondo visible
-            etiqueta.setFont(font);
-            etiqueta.setHorizontalAlignment(SwingConstants.CENTER);
-            etiqueta.setVerticalAlignment(SwingConstants.CENTER);
-            etiqueta.setForeground(Color.white);
-
-            panel.add(etiqueta, gbc);
-            gbc.gridy++; // Incrementar la coordenada Y para la siguiente etiqueta
+        gbc.anchor = GridBagConstraints.NORTH;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+    
+        int y = 0; // Posición inicial en el eje Y
+    
+        for (String text : lines) {
+            JLabel viewResult = new JLabel(text);
+            viewResult.setBackground(backgroundColor);
+            viewResult.setPreferredSize(new Dimension(500, 30));
+            viewResult.setOpaque(true);
+            viewResult.setFont(font);
+            viewResult.setHorizontalAlignment(SwingConstants.CENTER);
+            viewResult.setForeground(Color.white);
+            viewResult.setBorder(BorderFactory.createLineBorder(backgroundColor, 2));
+    
+            gbc.gridy = y++;
+            layout.setConstraints(viewResult, gbc);
+            historyGame.add(viewResult);
         }
-
-        JScrollPane scrollPane = new JScrollPane(panel);
-        getContentPane().add(scrollPane);
+    
+        JScrollPane scrollPane = new JScrollPane(historyGame);
+        // Ajuste para que el panel de desplazamiento comience desde el borde superior
+        scrollPane.getViewport().setPreferredSize(new Dimension(1280, 730));
+        add(scrollPane); // Agregar el JScrollPane al JPanel
     }
-
-    public static List<String> obtenerLineas(String rutaArchivo) {
-        List<String> lineas = new ArrayList<>();
-        try {
-            FileReader archivo = new FileReader(rutaArchivo);
-            BufferedReader lector = new BufferedReader(archivo);
-
-            String linea;
-            while ((linea = lector.readLine()) != null) {
-                // Eliminar los espacios en blanco al principio y al final de la línea antes de agregarla a la lista
-                lineas.add(linea.trim());
-            }
-
-            lector.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return lineas;
-    }
-
-    public static void main(String[] args) {
-        List<String> lineas = obtenerLineas("SaveData\\DataFiles\\profiles.txt");
-
-        SwingUtilities.invokeLater(() -> {
-            History gameHistory = new History(lineas);
-            gameHistory.setVisible(true);
-        });
-    }
+    
 }
