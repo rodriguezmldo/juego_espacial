@@ -83,7 +83,7 @@ public class Menu extends JPanel {
         });
 
         opcion3Button.addActionListener(e -> {
-            showOption3();
+            showOption3(menuWindow);
         });
 
         opcion4Button.addActionListener(e -> {
@@ -113,14 +113,15 @@ public class Menu extends JPanel {
         option2Window.setVisible(true);
     }
 
-    private void showOption3() {
-        // Crear y mostrar la ventana de la opción 3
-        List<String> lineas = History.obtenerLineas("SaveData\\DataFiles\\profiles.txt");
+    private void showOption3(JPanel menuWindow) {
+        menuWindow.removeAll();
 
-        SwingUtilities.invokeLater(() -> {
-            History gameHistory = new History(lineas);
-            gameHistory.setVisible(true);
-        });
+        History history = new History();
+        history.setSize(1280,720); // Establecer tamaño preferido
+        menuWindow.add(history);
+
+        menuWindow.revalidate();
+        menuWindow.repaint();
     }
 }
 
