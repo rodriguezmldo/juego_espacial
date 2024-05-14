@@ -1,0 +1,9 @@
+Nombre Jugador  partidas victorias perdidas destruidos
+Pedro Sanchez     30       20        10        400
+Francisco         40       20        20        465
+Leslye            30       20        10        400
+Maria             25       15        10        23
+Uriel Tapia       20       10        10        60
+Jose Luis         10       08        02        15
+Mariel            30       20        10        70
+Arlet             25       15        10        23
